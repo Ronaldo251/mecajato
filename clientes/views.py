@@ -1,11 +1,14 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import Cliente, Carro
+from django.views.decorators.csrf import csrf_protect
 # Create your views here.
 
 def clientes(request):
     if request.method == "GET":
         return render(request, 'clientes.html')
-    elif request.methos == "POST":
+    elif request.method == "POST":
+        
         nome = request.POST.get('nome')
         sobrenome = request.POST.get('sobrenome')
         email = request.POST.get('email')
@@ -13,4 +16,19 @@ def clientes(request):
         carros = request.POST.getlist('carro')
         placas = request.POST.getlist('placa')
         anos = request.POST.getlist('ano')
+        
+        cliente = Cliente(
+            nome = nome,
+            sobrenome = sobrenome,
+            email = email,
+            cpf = cpf
+        )
+        
+        cliente.save()
+        
+        x = list(zip(carros,placas,anos))
+        print(x)
+        
+        return HttpResponse('teste')
+        
         
