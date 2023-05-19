@@ -12,7 +12,8 @@
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     {% block 'head' %}{% csrf_token %}{% endblock %}
 
-    <title>{% block 'title' %}{% csrf_token %}{% endblock %}</title>
+    <title>{% block 'title' %}Clientes{% endblock %}</title>
+    {% csrf_token %}
   </head>
   <body>
     <div class="sidebar">

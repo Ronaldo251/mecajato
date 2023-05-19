@@ -6,10 +6,8 @@ class Cliente(models.Model):
     email = models.EmailField(max_length=50)
     cpf = models.CharField(max_length=11)
 
-
     def __Str__(self) -> str:
         return self.nome
-
 
 class Carro(models.Model):
     carro = models.CharField(max_length=50)
